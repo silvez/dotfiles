@@ -1,0 +1,15 @@
+continuousView yes
+bind h          any         scrollLeft(16)
+bind l          any         scrollRight(16)
+bind k          any         scrollUp(24)
+bind j          any         scrollDown(24)
+bind >          any         gotoLastPage
+bind <          any         gotoPage(1)
+bind O          any         openInNewWin
+bind /          any         find
+bind f          any         findNext
+#bind F          any         findPrevious
+bind ctrl-b     any         pageUp
+bind ctrl-f     any         pageDown
+#bind O          any         openFileAtDest(espirito-livre_5.pdf,/files/e-books/computing/)
+#bind O          any         openFileAtDest(file,dest)

@@ -1,0 +1,7 @@
+[user]
+	name = Bruno Vezzaro
+	email = b.vezzaro@gmail.com
+[core]
+	editor = vim
+[merge]
+	tool = vimdiff

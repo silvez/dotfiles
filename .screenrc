@@ -1,0 +1,158 @@
+# ~/.screenrc
+# vim: ft=sh
+#
+# explicacoes sobre as configuracoes e utilizacoo geral do screen
+# estao em http://aurelio.net/doc/coluna
+#
+# 20010403 <verde (a) aurelio net>
+
+# dica: zombie
+#   :zombie kr
+# faz com que cada janela morta fique esperando uma acao
+# (Kill ou Restore). util pra ver os erros que aconteceram.
+#
+
+### explanation about color codes:
+#
+# sorendition <attribute> <color>
+# sorendition ab cd  //  a,c=bg  b,d=fg
+#
+#  ab             c&d       c&d
+#  00 normal       0 black   4 blue
+#  1- invert       1 red     5 magenta
+#  25 bright       2 green   6 cyan
+#  3- 1+2          3 brown   7 silver
+#
+# * attributes are cumulative, so a=3 is invert+bright
+# * colors use the same codes for bg & fg colors,
+#   so cd=22 all you get is green, text unreadable
+#
+# examples:
+#  00 02 - black bg (0), green fg (2), no attributes (00)
+#  20 30 - brown bg (3), black fg (0), bright bg (2) -> turns yellow
+#  35 74 - silver bg (7), blue fg (4), invert, bright bg (3), bright fg (5)
+
+# barra azul e amarelo, com hora, data e janelas
+msgwait 3
+sorendition 05 43
+hardstatus alwayslastline "%c | %Y-%m-%d | %w"
+#hardstatus alwayslastline "%{+b rk}%c | %Y-%m-%d | %w"
+#caption     always        "%{+b rk}%H%{gk} |%c %{yk}%d.%m.%Y | %72=Load: %l %{wk}"
+#hardstatus alwayslastline "%?%{yk}%-Lw%?%{wb}%n*%f %t%?(%u)%?%?%{yk}%+Lw%?"
+
+# barra verde e preto, com codigos de cores literais
+#hardstatus alwayslastline "\033[m\033[42;30m%c\033[m \033[42;30m%Y%m%d\033[m \033[42;30m %w \033[m"
+
+vbell on                                 # bipe visual
+bell "%n %t APITANDO!"                   # msg bipe
+autodetach on                            # -
+startup_message off                      # msg mala
+shell $SHELL                             # nem lembro
+#bufferfile $TMPFILE                     # arq tmp
+#nethack on                              # msgs estilo nethack
+#defmonitor on                           # monitorar QUALQUER atividade
+bind \034 hardcopy                       # mapeia PrintScreen
+caption splitonly "%2n %t"               # barra de janelas
+defscrollback 1000
+
+# programas carregados automaticamente
+#bind c screen 1                          # janela nova
+#bind L screen -t www 6 lynx -book        # navegador
+#bind M screen -t mp3 9 mp3 /mp3/punk     # mp3
+
+# cadeias comuns que tem que digitar toda hora, nome, email, etc
+# util pra preencher formalarios online...
+#bind N stuff "$NOME"
+#bind D stuff $DATA
+#bind I stuff $ICQ
+#bindkey -t ec stuff $EMAILC
+#bindkey -t ev stuff $EMAILV
+#bindkey -t uc stuff $URLC
+#bindkey -t uv stuff $URLV
+#bindkey -t ur stuff http://txt2regex.sourceforge.net
+#bindkey -t ut stuff http://txt2tags.sourceforge.net
+#bindkey -t cl stuff "chage -M -1 bvezzaro; passwd bvezzaro"
+#bindkey -t cm stuff "/etc/init.d/mon stop; rm -f /opt/UOLmonitor/mon/db/uolmon.db ;/etc/init.d/mon start"
+#bindkey -t m stuff "/etc/init.d/mon stop; rm -f /opt/UOLmonitor/mon/db/uolmon.db ;/etc/init.d/mon start"
+bindkey -t m stuff "/etc/init.d/mon stop; sleep 5 ;/etc/init.d/mon start"
+bindkey -t s stuff "sudo su -"
+bindkey -t l stuff "chage -M -1 bvezzaro;passwd bvezzaro"
+bindkey -t v stuff "w; free -m; df -h"
+bindkey -t p stuff "ps auxwf|less"
+bindkey -t h stuff "history|less"
+bindkey -t c stuff "grep -rv \# /var/spool/cron/"
+#bindkey -t q stuff "sun123sun123sun123"
+#bindkey -t w stuff "vmware-cmd -l"
+#bindkey -t d stuff "$(date +%Y%m%d)"
+bindkey -t d stuff "_$(date +%Y%m%d)"
+bindkey -t 1 stuff "grep -r |cut -f 1 -d :|sort|uniq"
+bindkey -t 2 stuff "chage -M -1 bvezzaro; passwd bvezzaro"
+bindkey -t 3 stuff "sync; echo 3 > /proc/sys/vm/drop_caches"
+
+#bind o screen 0 /usr/bin/play $HOME/pessoal/O-Oh.wav
+
+#register c "$URLC"
+#register v "$URLV"
+#register r "http://txt2regex.sourceforge.net"
+#register t "http://txt2tags.sourceforge.net"
+#bind E paste
+
+# to shit+(page up|page down) work
+#bind h hardstatus ignore
+#bind g hardstatus alwayslastline
+
+# mapeamentos para fazer redimensionamento de janelas divididas
+# com o Split.
+bind 'R' wrap
+bind 'r' resize
+bind '+' resize +5
+bind '-' resize -5
+
+# enquanto nao resolver o problema do hardcopy com hardstatus
+#hardcopy_append on
+#bind h
+
+# seguranca: desligar algumas tecla perigosas
+#bind k
+#bind ^k
+#bind '^\'
+#bind z
+#bind ^z
+#bind x
+
+# e aqui fica o kill
+bind 'K' kill
+
+#colocar \033k\033\134 no comeco do PS1
+# permite prompt colorido mas bagunca quando chega na extrema direita
+#shelltitle '] |_'
+shelltitle ''
+
+# para colar no vim sem "identar"
+# ATENCAO: . ^a^]
+#register [ "\033:set paste a"
+#register ] "\033:set nopaste a"
+#bind ^] paste [.]
+
+### do /etc/screenrc
+termcap  facit|vt100|xterm LP:G0
+terminfo facit|vt100|xterm LP:G0
+#the vt100 description does not mention "dl". *sigh*
+termcap  vt100 dl=5\E[M
+terminfo vt100 dl=5\E[M
+###
+
+# disprando programas automaticamente ao iniciar o screen
+
+#@# ### DHCP ### ### DHCP ### ### DHCP ### ### DHCP ###
+#screen -t ROOT          0 su -
+#screen -t " "           1
+#screen -t " "           1 bash -c ". ~/.bash_profile"
+#screen -t " "           1 bash -c ". ~/.bash_profile"
+#screen -t freshmeat    1 lynx http://www.freshmeat.net
+#screen -t icq          1 bash -c ". ~/.bashrc ; icq"
+#screen -t irc          2 BitchX -b verde irc.openprojects.net
+#screen                 1 lynx -book
+#screen -t zznoticias   4 bash -c "funcoeszz zznoticiaslinux; echo; echo ---FIM---; read"
+#screen -t artistas     5 bash -c "funcoeszz zzcasadosartistas; echo; echo ---FIM---; read"
+select 0
