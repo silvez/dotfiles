@@ -64,3 +64,4 @@ alias cl='curl -k -A "Mozilla/5.0"'
 alias ob='cat ~/oneliners-bash.txt'
 alias w3='w3m -o user_agent="Mozilla/5.0" -o ssl_verify_server="no"'
 alias hst='history|tail -n 30'
+#
