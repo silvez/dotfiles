@@ -1,0 +1,18 @@
+Vim
+	fold/unfold
+	remap Previous Tab 'gT' do another key
+	NERDTree
+		mirror NT across every NT tabe
+		mksession save correctly sessions
+		identify where bookmarks are saved
+	outliner
+		auto tabline when entered a newline (down level)
+
+zsh
+	aliases
+
+Xfce
+	Identify and copy shortcut to another Xfce envoriments
+
+tmux
+	Review tmux conf

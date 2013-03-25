@@ -149,6 +149,7 @@ endif
 
 " quick view of tabs pages (showtabeline is disabled)
 "nmap ,t :tabs <CR>
+nmap ,tb :tabe<CR>
 
 " Mapping copy n paste in X11 envoriment
 "" BUG: wating for mapping <C> <S> X to work in next vim releases,
@@ -162,7 +163,7 @@ endif
 
 "============================================================================
 " Functions
-"----------------------------------------------------------------------------
+"============================================================================
 
 " turn off/on coments, printing them black
 fu! CommOnOff()
@@ -201,7 +202,7 @@ endfunction
 
 "============================================================================
 " Statusline, Ruler
-"----------------------------------------------------------------------------
+"============================================================================
 set laststatus=2        " ls:  always put a status line
 set statusline=%([%-n]%y\ %f%M%R%)\ %=\ %(%l,%c%V\ %P\ [0x%02.2B]%)
 "set statusline=%([%-n]%y\ %f%M%R%)\ %{CurrSubName()}\ %=\ %(%l,%c%V\ %P\ [0x%02.2B]%)
@@ -209,7 +210,7 @@ set statusline=%([%-n]%y\ %f%M%R%)\ %=\ %(%l,%c%V\ %P\ [0x%02.2B]%)
 
 "============================================================================
 " Auto-commands
-"----------------------------------------------------------------------------
+"============================================================================
 
 " Remove trailing whitespace on file-load and write it
 "if &l:ft != 'help'
@@ -262,3 +263,14 @@ endfunction
 set guitablabel=%{GuiTabLabel()}
 filetype plugin indent on
 syntax on
+"
+"============================================================================
+" NERDtree specifics
+"============================================================================
+
+" auto-starting bookmarking
+let NERDTreeShowBookmarks = 1
+
+" map NERDtree
+nmap ,nt :NERDTree<CR>
+nmap ,tn :tabe<CR>:NERDTree<CR>
