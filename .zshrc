@@ -4,14 +4,14 @@ autoload -Uz promptinit
 promptinit
 prompt walters
 
-setopt histignorealldups sharehistory
+setopt histignorealldups sharehistory append_history 
 
 # Use emacs keybindings even if our EDITOR is set to vi
 bindkey -e
 
 # Keep 1000 lines of history within the shell and save it to ~/.zsh_history:
 HISTSIZE=1000
-SAVEHIST=1000
+SAVEHIST=10000
 HISTFILE=~/.zsh_history
 
 # Use modern completion system
@@ -35,3 +35,24 @@ zstyle ':completion:*' verbose true
 
 zstyle ':completion:*:*:kill:*:processes' list-colors '=(#b) #([0-9]#)*=0=01;31'
 zstyle ':completion:*:kill:*' command 'ps -u $USER -o pid,%cpu,tty,cputime,cmd'
+
+## Added
+# Loading complementary stuff
+if [[ -r ~/zsh_aliases ]]; then
+    . ~/.zsh_aliases
+fi
+
+# Binding some keys
+bindkey '\C-U' backward-kill-line
+
+## Kill until slash
+#slash-backward-kill-word() {
+#    local WORDCHARS="${WORDCHARS:s@/@}"
+#    zle backward-kill-word
+#}
+#zle -N slash-backward-kill-word
+#bindkey '\C-W' slash-backward-kill-word 
+
+# Looks like a better fix than function above
+autoload -U select-word-style
+select-word-style bash
