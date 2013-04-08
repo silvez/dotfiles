@@ -4,7 +4,7 @@ autoload -Uz promptinit
 promptinit
 prompt walters
 
-setopt histignorealldups sharehistory append_history 
+setopt histignorealldups sharehistory append_history
 
 # Use emacs keybindings even if our EDITOR is set to vi
 bindkey -e
@@ -38,7 +38,7 @@ zstyle ':completion:*:kill:*' command 'ps -u $USER -o pid,%cpu,tty,cputime,cmd'
 
 ## Added
 # Loading complementary stuff
-if [[ -r ~/zsh_aliases ]]; then
+if [[ -r ~/.zsh_aliases ]]; then
     . ~/.zsh_aliases
 fi
 
@@ -51,7 +51,7 @@ bindkey '\C-U' backward-kill-line
 #    zle backward-kill-word
 #}
 #zle -N slash-backward-kill-word
-#bindkey '\C-W' slash-backward-kill-word 
+#bindkey '\C-W' slash-backward-kill-word
 
 # Looks like a better fix than function above
 autoload -U select-word-style
