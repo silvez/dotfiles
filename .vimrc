@@ -117,11 +117,11 @@ noremap <BS> <Up>
 " insert 'date' in insert mode
 "imap =D <esc>:r!date '+\%Y-\%m-\%d'<CR>kJA
 "iab =D <esc>:r!date '+\%Y-\%m-\%d'<CR>kJA
-"if exists("*strftime")
-    "imap =D <C-r>=strftime("%Y-%m-%d")<CR>
-    "imap =H <C-r>=strftime("%H:%M")<CR>
-    "imap =T <C-r>=strftime("%Y-%m-%d at %H:%M")<CR>
-"endif
+if exists("*strftime")
+    imap =D <C-r>=strftime("%Y-%m-%d")<CR>
+    imap =H <C-r>=strftime("%H:%M")<CR>
+    imap =T <C-r>=strftime("%Y-%m-%d at %H:%M")<CR>
+endif
 
 " PalavrasRepetidas: procura palavras repetidas no texto (aurelio)
 nmap ,pr /\<\(\w*\) \1\><CR>
@@ -180,7 +180,7 @@ map <F11> :call CommOnOff()<CR>
 function! ModeChange()
   if getline(1) =~ "^#!"
     if getline(1) =~ "/bin/"
-      silent !chmod a+x<afile>
+      silent !chmod a+x <afile>
     endif
   endif
 endfunction

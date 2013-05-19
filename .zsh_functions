@@ -1,0 +1,11 @@
+# sshpass
+s ()
+{
+    which sshpass > /dev/null && sshpass -f /etc/known.bug ssh -q -o "StrictHostKeyChecking no" -l bvezzaro $@
+}
+
+# normal ssh
+sss ()
+{
+    ssh -q -o "StrictHostKeyChecking no" bvezzaro@$@
+}
