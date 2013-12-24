@@ -14,7 +14,7 @@ ZSH_THEME="robbyrussell"
 # Set to this to use case-sensitive completion
 # CASE_SENSITIVE="true"
 
-# Comment this out to disable bi-weekly auto-update checks
+# Uncomment this to disable bi-weekly auto-update checks
 # DISABLE_AUTO_UPDATE="true"
 
 # Uncomment to change how often before auto-updates occur? (in days)
@@ -37,76 +37,33 @@ ZSH_THEME="robbyrussell"
 # much faster.
 # DISABLE_UNTRACKED_FILES_DIRTY="true"
 
+# Uncomment following line if you want to  shown in the command execution time stamp 
+# in the history command output. The optional three formats: "mm/dd/yyyy"|"dd.mm.yyyy"|
+# yyyy-mm-dd
+# HIST_STAMPS="mm/dd/yyyy"
+
 # Which plugins would you like to load? (plugins can be found in ~/.oh-my-zsh/plugins/*)
 # Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
-plugins=(git tmux)
+plugins=(git)
 
 source $ZSH/oh-my-zsh.sh
 
-# Customize to your needs...
-## added
-## Set up the prompt
-#
-#autoload -Uz promptinit
-#promptinit
-#prompt walters
+# User configuration
 
-setopt histignorealldups sharehistory append_history
+export PATH="/usr/local/bin:/usr/bin:/bin:/home/silvez/bin:/usr/local/sbin:/usr/sbin:/home/silvez/bin"
+# export MANPATH="/usr/local/man:$MANPATH"
 
-# Use emacs keybindings even if our EDITOR is set to vi
-bindkey -e
+# # Preferred editor for local and remote sessions
+# if [[ -n $SSH_CONNECTION ]]; then
+#   export EDITOR='vim'
+# else
+#   export EDITOR='mvim'
+# fi
 
-# Keep 1000 lines of history within the shell and save it to ~/.zsh_history:
-HISTSIZE=1000
-SAVEHIST=10000
-HISTFILE=~/.zsh_history
+# Compilation flags
+# export ARCHFLAGS="-arch x86_64"
 
-## Use modern completion system #autoload -Uz compinit
-#compinit
-#
-#zstyle ':completion:*' auto-description 'specify: %d'
-#zstyle ':completion:*' completer _expand _complete _correct _approximate
-#zstyle ':completion:*' format 'Completing %d'
-#zstyle ':completion:*' group-name ''
-#zstyle ':completion:*' menu select=2
-#eval "$(dircolors -b)"
-#zstyle ':completion:*:default' list-colors ${(s.:.)LS_COLORS}
-#zstyle ':completion:*' list-colors ''
-#zstyle ':completion:*' list-prompt %SAt %p: Hit TAB for more, or the character to insert%s
-#zstyle ':completion:*' matcher-list '' 'm:{a-z}={A-Z}' 'm:{a-zA-Z}={A-Za-z}' 'r:|[._-]=* r:|=* l:|=*'
-#zstyle ':completion:*' menu select=long
-#zstyle ':completion:*' select-prompt %SScrolling active: current selection at %p%s
-#zstyle ':completion:*' use-compctl false
-#zstyle ':completion:*' verbose true
-#
-#zstyle ':completion:*:*:kill:*:processes' list-colors '=(#b) #([0-9]#)*=0=01;31'
-#zstyle ':completion:*:kill:*' command 'ps -u $USER -o pid,%cpu,tty,cputime,cmd'
+# ssh
+# export SSH_KEY_PATH="~/.ssh/dsa_id"
 
-## Added
-# Loading complementary stuff
-if [[ -r ~/.zsh_aliases ]]; then
-    . ~/.zsh_aliases
-fi
-
-# Loading complementary stuff
-if [[ -r ~/.zsh_functions ]]; then
-    . ~/.zsh_functions
-fi
-
-# Binding some keys
-bindkey '\C-U' backward-kill-line
-## Kill until slash
-#slash-backward-kill-word() {
-#    local WORDCHARS="${WORDCHARS:s@/@}"
-#    zle backward-kill-word
-#}
-#zle -N slash-backward-kill-word
-#bindkey '\C-W' slash-backward-kill-word
-
-# Looks like a better fix than function above
-autoload -U select-word-style
-select-word-style bash
-
-# Settting a common TERM to work correctly user SSH serssions
-TERM=screen

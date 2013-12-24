@@ -1,6 +1,11 @@
 " ~/.vimrc
-"
-" UPDATED in 2009-10-17 at 18:07
+
+" ========================================
+" autoloading pathogen plugin
+" ========================================
+execute pathogen#infect()
+"call pathogen#runtime_append_all_bundles()
+"call pathogen#helptags()
 
 " ========================================
 " Settings
@@ -35,7 +40,7 @@ set expandtab
 " how many spaces for indenting
 set shiftwidth=4
 " searches are case insensitive and incremental
-set ignorecase
+set noignorecase
 set incsearch
 " highlight searches
 set hlsearch
@@ -229,6 +234,9 @@ au BufNewFile,BufRead *.sh,*.py,*.rb set tw=85
 "au BufNewFile,BufRead *.txt set tw=80 ts=8 ft=txt "spell
 au BufNewFile,BufRead *README,*NEWS,*TODO set ft=txt "spell
 
+" syntax of puppet scripts
+au BufNewFile,BufRead *.pp set ft=ruby "spell
+
 " 'Makefile' ele adora usar linhas compridas malas
 "au BufNewFile,BufRead Makefile set tw=0
 
@@ -263,7 +271,7 @@ endfunction
 set guitablabel=%{GuiTabLabel()}
 filetype plugin indent on
 syntax on
-"
+
 "============================================================================
 " NERDtree specifics
 "============================================================================

@@ -1,6 +1,0 @@
-let g:netrw_dirhistmax  =10
-let g:netrw_dirhist_cnt =4
-let g:netrw_dirhist_1='/run/tmp/pool-a1-indiana-q-pla/common/conf-UOLrecurrence-manager-app/etc/security/limits.d/00-limits-recurrence-manager.conf'
-let g:netrw_dirhist_2='/home/silvez'
-let g:netrw_dirhist_3='/home/silvez/.cache'
-let g:netrw_dirhist_4='/run/tmp/conf-UOLbolao-cache/a1-gol1/opt/riak13/etc'
