@@ -1,7 +1,15 @@
 [user]
 	name = Bruno Vezzaro
 	email = b.vezzaro@gmail.com
+
 [core]
 	editor = vim
+
 [merge]
 	tool = vimdiff
+
+[credential "https://github.com"]
+    username = silvez
+
+[http]
+	sslVerify = false
