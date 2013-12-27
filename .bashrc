@@ -55,5 +55,5 @@ fi
 
 # carregando funcoes e aliases (para o screen)
 for i in .bash_functions .bash_aliases .bash_misc; do
-    source $HOME/${i}
+    test -f ${i} && source $HOME/${i}
 done

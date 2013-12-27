@@ -69,5 +69,5 @@ export PATH="/usr/local/bin:/usr/bin:/bin:/usr/local/sbin:/usr/sbin:/usr/bin/scr
 
 # source aditional files
 for i in .zsh_aliases .zsh_functions; do
-    source $HOME/${i}
+    test -f ${i} && source $HOME/${i}
 done

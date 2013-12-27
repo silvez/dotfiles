@@ -69,25 +69,11 @@ defscrollback 1000
 #bindkey -t ev stuff $EMAILV
 #bindkey -t uc stuff $URLC
 #bindkey -t uv stuff $URLV
-#bindkey -t ur stuff http://txt2regex.sourceforge.net
-#bindkey -t ut stuff http://txt2tags.sourceforge.net
-#bindkey -t cl stuff "chage -M -1 bvezzaro; passwd bvezzaro"
-#bindkey -t cm stuff "/etc/init.d/mon stop; rm -f /opt/UOLmonitor/mon/db/uolmon.db ;/etc/init.d/mon start"
-#bindkey -t m stuff "/etc/init.d/mon stop; rm -f /opt/UOLmonitor/mon/db/uolmon.db ;/etc/init.d/mon start"
-bindkey -t m stuff "/etc/init.d/mon stop; sleep 5 ;/etc/init.d/mon start"
 bindkey -t s stuff "sudo su -"
-bindkey -t l stuff "chage -M -1 bvezzaro;passwd bvezzaro"
 bindkey -t v stuff "w; free -m; df -h"
 bindkey -t p stuff "ps auxwf|less"
 bindkey -t h stuff "history|less"
-bindkey -t c stuff "grep -rv \# /var/spool/cron/"
-#bindkey -t q stuff "sun123sun123sun123"
-#bindkey -t w stuff "vmware-cmd -l"
-#bindkey -t d stuff "$(date +%Y%m%d)"
 bindkey -t d stuff "_$(date +%Y%m%d)"
-bindkey -t 1 stuff "grep -r |cut -f 1 -d :|sort|uniq"
-bindkey -t 2 stuff "chage -M -1 bvezzaro; passwd bvezzaro"
-bindkey -t 3 stuff "sync; echo 3 > /proc/sys/vm/drop_caches"
 
 #bind o screen 0 /usr/bin/play $HOME/pessoal/O-Oh.wav
 

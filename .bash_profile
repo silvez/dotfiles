@@ -55,7 +55,7 @@ shopt -s histappend histreedit
 shopt -s histverify cmdhist
 
 # remove directory
-[ -d ~/.bash_history ] && rm -rf ~/.bash_history
+#[ -d ~/.bash_history ] && rm -rf ~/.bash_history
 
 #
 # Enable programmable completion features if they're not already
