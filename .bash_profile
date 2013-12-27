@@ -1,9 +1,3 @@
-# .bash_profile
-#
-# http://dotfiles.repository.steve.org.uk/
-#
-# ATUALIZADO 2009-05-08
-
 #
 # If not running interactively, don't do anything
 #

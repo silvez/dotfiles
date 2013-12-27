@@ -1,6 +1,0 @@
-#display 0
-no6
-rfbauth /home/silvez/.vnc/passwd
-forever
-nevershared
-loop
