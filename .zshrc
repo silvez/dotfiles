@@ -67,7 +67,36 @@ export PATH="/usr/local/bin:/usr/bin:/bin:/usr/local/sbin:/usr/sbin:/usr/bin/scr
 # ssh
 # export SSH_KEY_PATH="~/.ssh/dsa_id"
 
+# opt
+setopt histignorealldups sharehistory append_history
+
+# Keep 1000 lines of history within the shell and save it to ~/.zsh_history:
+HISTSIZE=1000
+SAVEHIST=10000
+HISTFILE=~/.zsh_history
+
 # source aditional files
 for i in .zsh_aliases .zsh_functions; do
-    test -f ${i} && source $HOME/${i}
+    source $HOME/${i}
 done
+
+# binding some keys
+bindkey '\C-U' backward-kill-line
+
+# Use emacs keybindings even if our EDITOR is set to vi
+bindkey -e
+
+## Kill until slash
+#slash-backward-kill-word() {
+# local WORDCHARS="${WORDCHARS:s@/@}"
+# zle backward-kill-word
+#}
+#zle -N slash-backward-kill-word
+#bindkey '\C-W' slash-backward-kill-word
+
+# looks like a better fix than function above
+autoload -U select-word-style
+select-word-style bash
+
+# settting a common TERM to work correctly user SSH serssions
+TERM=screen
