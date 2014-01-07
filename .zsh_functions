@@ -118,10 +118,11 @@ renchar ()
     fi
 }
 
-blank ()
+## clean aditional spaces and empty lines
+clean ()
 {
-    sed -i 's/^[ \t]\+\|[ \t]\+$//g' $@
-    sed -i '/^$/d' $@
+    sed -i -e 's/^[ \t]\+//g' -e 's/[ \t]\+$//g' -e 's/[ \t]\+/ /g' $@
+    sed -i -e '/^$/d' $@
 }
 
 myip ()

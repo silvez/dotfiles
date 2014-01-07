@@ -76,7 +76,7 @@ SAVEHIST=10000
 HISTFILE=~/.zsh_history
 
 # source aditional files
-for i in .zsh_aliases .zsh_functions; do
+for i in .zsh_aliases .zsh_functions .zsh_misc; do
     source $HOME/${i}
 done
 
